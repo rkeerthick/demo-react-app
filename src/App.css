@@ -1,0 +1,26 @@
+body {
+    background-color: maroon;
+    height: 100vh;
+    margin: auto;
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    background-color: aliceblue;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.drop-down {
+    display: flex;
+}
+
