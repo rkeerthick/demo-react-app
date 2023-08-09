@@ -10,10 +10,11 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/Form" element={<Form />}></Route>
+          <Route path="/" exact element={<Form />}>
+            <Route path="/Form" element={<Form />}></Route>
+          </Route>
           <Route path="/Home" element={<Home />}></Route>
         </Routes>
-        
       </BrowserRouter>
     </div>
   )
