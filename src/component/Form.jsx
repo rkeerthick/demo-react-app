@@ -1,18 +1,49 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function Form({ addTask }) {
+export default function Form() {
+
+  const [details, setDetails] = useState([]);
+
+    function addTask(
+        title,
+        startDate,
+        endDate,
+        desc,
+        asignment,
+        level,
+        stus,
+        RCA
+    ) {
+        setDetails([
+            ...details,
+            {
+                id: title,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                desc: desc,
+                assignment: asignment,
+                level: level,
+                status: stus,
+                rca: RCA,
+            },
+        ]);
+    }
+
+
+
+
   const navigate = useNavigate();
 
   const assignment = ["Developer", "QA", "PM", "PO"];
+
   const level = ["Major", "Minor", "Cosmetic"];
+
   const status = ["Open", "Closed", "Fixed", "Reopen"];
-  // const onOptionChangeHandler = (event) => {
-  //     console.log("User Selected Value - ", event.target.value)
-  // }
 
   const [title, setTitle] = useState("");
 
@@ -32,17 +63,24 @@ export default function Form({ addTask }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addTask(title, startDate, endDate, desc, asignment, lvl, stus, RCA);
+    // addTask(title, startDate, endDate, desc, asignment, lvl, stus, RCA);
+    setDetails([
+      ...details,
+      {
+          id: title,
+          title: title,
+          startDate: startDate,
+          endDate: endDate,
+          desc: desc,
+          assignment: asignment,
+          level: level,
+          status: stus,
+          rca: RCA,
+      },
+  ]);
   }
 
-  // function titleValidate(event) {
-  //     let text = event.target.value
-  //     if(text.length > 49)
-  //         event.target.readOnly = true;
-  //     // console.log(text)
-  // }
-
-  console.log(desc);
+  console.log(details);
 
   return (
     <div className="container">

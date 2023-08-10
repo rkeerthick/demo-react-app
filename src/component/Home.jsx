@@ -1,7 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-export default function Home() {
+export default function Home(props) {
   const navigate = useNavigate();
+  console.log(props)
   return (
     <div>
       <h1>Home</h1>
@@ -9,7 +10,8 @@ export default function Home() {
       <input
         type="button"
         value="Form"
-        onClick={() => navigate("/Form", { from: "/Home" })}
+        onClick={() => navigate("/Form", { replace: true })}
+        // onClick={() => navigate(-1)}
       />
     </div>
   );
